@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  {{ template "header" . }}
+  <body>
+    <div
+      id="content"
+      class="max-w-sm flex m-auto h-[800px] justify-center border-2 border-red-500"
+    >
+      <div class="flex justify-center items-center flex-col">
+        <div>
+          <h1>Tasbih</h1>
+        </div>
+        <div class="justify-center items-center flex flex-col">
+          <h3 id="count">0</h3>
+          <button
+            hx-post="/inc"
+            hx-target="#count"
+            hx-trigger="click"
+            hx-swap="innerHTML"
+            type="submit"
+            class="border-2 border-cyan-500 px-4"
+          >
+            increment
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
