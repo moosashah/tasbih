@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  {{ template "header" .Header }}
+  <body>
+    {{template "nav"}}
+    <div
+      id="content"
+      class="max-w-sm flex m-auto h-[800px] justify-center border-2 border-red-500"
+    >
+      <div class="flex justify-center items-center flex-col">
+        <div>
+          <h1 class="pb-5 text-6xl">Sign up</h1>
+        </div>
+        <div class="justify-center items-center flex flex-col">
+          <form hx-post="/auth/signup" hx-swap="outerHTML" hx-target="#content">
+            <!-- <div class="flex justify-between pb-4"> -->
+            <!--   <label for="name">Name: </label> -->
+            <!--   <input name="name" id="name" class="border-2 border-blue-400" /> -->
+            <!-- </div> -->
+            <div
+              class="flex justify-between pb-4"
+              hx-target="this"
+              hx-swap="outerHTML"
+            >
+              <label for="email">Email: </label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                class="border-2 border-blue-400"
+                hx-post="/auth/email"
+              />
+            </div>
+            <!-- <div class="flex justify-between pb-4"> -->
+            <!--   <label for="password">password: </label> -->
+            <!--   <input -->
+            <!--     type="password" -->
+            <!--     name="password" -->
+            <!--     id="password" -->
+            <!--     class="border-2 border-blue-400" -->
+            <!--   /> -->
+            <!-- </div> -->
+            <button class="w-full mx-auto">Create user account</button>
+          </form>
+          <p class="underline">
+            already a user?
+            <a href="/login"> go to login</a>
+          </p>
+          {{template "error" .}}
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

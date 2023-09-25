@@ -11,16 +11,12 @@ type header struct {
 	Title string
 }
 
-type ping struct {
-	header
-}
-
-type landingPage struct {
+type page struct {
 	header
 }
 
 func Pong(c echo.Context) error {
-	return c.Render(http.StatusOK, "ping.html", ping{
+	return c.Render(http.StatusOK, "ping.html", page{
 		header{
 			Title: "Test page",
 		},
@@ -28,7 +24,7 @@ func Pong(c echo.Context) error {
 }
 
 func ServeLanding(c echo.Context) error {
-	return c.Render(http.StatusOK, "index.html", landingPage{
+	return c.Render(http.StatusOK, "index.html", page{
 		header{
 			Title: "Tasbih",
 		},

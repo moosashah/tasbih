@@ -11,4 +11,14 @@
   ></script>
   <script src="https://unpkg.com/htmx.org/dist/ext/ws.js"></script>
 </head>
+{{end}} {{block "error" .}}
+<div id="errors" class="error">
+  <h1>error?</h1>
+</div>
+{{end}} {{block "nav" .}}
+<header>
+  <p><a href="/signup">signup</a></p>
+  <p><a href="/home">home</a></p>
+  <p><a href="/login">login</a></p>
+</header>
 {{end}}
